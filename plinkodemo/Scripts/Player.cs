@@ -3,7 +3,11 @@ using System;
 
 public partial class Player : Node2D
 {
-	private float speed = 400;
+	[Export] 
+	private float Speed = 400;
+
+	[Export]
+	private PackedScene Prefab;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -13,7 +17,13 @@ public partial class Player : Node2D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		float moveX = Input.GetAxis("left", "right") * speed * (float)delta;
+		float moveX = Input.GetAxis("left", "right") * Speed * (float)delta;
 		Translate(new Vector2(moveX, 0));
-	}
+
+		if (Input.IsActionJustPressed("drop"))
+		{
+			Node2D disk = Prefab.Instantiate<Node2D>();
+			this.AddChild(disk);
+        }
+    }
 }
