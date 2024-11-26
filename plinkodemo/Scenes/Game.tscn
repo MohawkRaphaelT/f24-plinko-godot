@@ -10,15 +10,18 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_ab46m"]
 
 [node name="Scene" type="Node2D"]
+metadata/_edit_lock_ = true
 
-[node name="Player" type="Node2D" parent="."]
+[node name="Player" type="Node2D" parent="." node_paths=PackedStringArray("PrefabParent")]
+position = Vector2(640, 50)
 script = ExtResource("1_d4da0")
 Prefab = ExtResource("2_csn50")
+PrefabParent = NodePath("../Disks")
 
 [node name="Ellipse" type="Node2D" parent="Player"]
-position = Vector2(640, 61)
 script = ExtResource("1_4utbx")
 size = Vector2(25, 25)
+metadata/_edit_lock_ = true
 
 [node name="Level" type="Node2D" parent="."]
 
@@ -1019,4 +1022,7 @@ metadata/_edit_lock_ = true
 [node name="Ellipse" type="Node2D" parent="Level/Pegs/Row 6/Peg 14"]
 script = ExtResource("1_4utbx")
 size = Vector2(20, 20)
+metadata/_edit_lock_ = true
+
+[node name="Disks" type="Node2D" parent="."]
 metadata/_edit_lock_ = true

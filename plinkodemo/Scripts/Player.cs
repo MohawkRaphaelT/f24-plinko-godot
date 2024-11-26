@@ -9,8 +9,11 @@ public partial class Player : Node2D
 	[Export]
 	private PackedScene Prefab;
 
-	// Called when the node enters the scene tree for the first time.
-	public override void _Ready()
+    [Export]
+    private Node2D PrefabParent;
+
+    // Called when the node enters the scene tree for the first time.
+    public override void _Ready()
 	{
 	}
 
@@ -22,8 +25,9 @@ public partial class Player : Node2D
 
 		if (Input.IsActionJustPressed("drop"))
 		{
-			Node2D disk = Prefab.Instantiate<Node2D>();
-			this.AddChild(disk);
+			RigidBody2D disk = Prefab.Instantiate<RigidBody2D>();
+            PrefabParent.AddChild(disk);
+			disk.GlobalPosition = this.GlobalPosition;
         }
     }
 }
