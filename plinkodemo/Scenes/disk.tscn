@@ -1,10 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://piboqns7gqbg"]
+[gd_scene load_steps=4 format=3 uid="uid://piboqns7gqbg"]
 
+[ext_resource type="PhysicsMaterial" uid="uid://cem4mujv6vtvh" path="res://Physics Materials/physmat_bouncy.tres" id="1_kuaer"]
 [ext_resource type="Script" path="res://addons/2d_shapes/shapes/Ellipse.gd" id="1_oh6gy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jax1g"]
 
 [node name="Disk" type="RigidBody2D"]
+physics_material_override = ExtResource("1_kuaer")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_jax1g")

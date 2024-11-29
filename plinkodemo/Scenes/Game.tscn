@@ -1,13 +1,22 @@
-[gd_scene load_steps=7 format=3 uid="uid://ctkug1bfwpruo"]
+[gd_scene load_steps=13 format=3 uid="uid://ctkug1bfwpruo"]
 
 [ext_resource type="Script" path="res://addons/2d_shapes/shapes/Ellipse.gd" id="1_4utbx"]
 [ext_resource type="Script" path="res://Scripts/Player.cs" id="1_d4da0"]
 [ext_resource type="PackedScene" uid="uid://piboqns7gqbg" path="res://Scenes/disk.tscn" id="2_csn50"]
 [ext_resource type="Script" path="res://addons/2d_shapes/shapes/Rectangle.gd" id="3_nnvu2"]
+[ext_resource type="Script" path="res://Scripts/BucketArea.cs" id="5_kiaud"]
+[ext_resource type="Script" path="res://Scripts/ScoreUI.cs" id="6_dcm1s"]
+[ext_resource type="Script" path="res://Scripts/DestroyArea.cs" id="6_egecq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3ibcx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ab46m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ima6r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jq418"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ysgo6"]
 
 [node name="Scene" type="Node2D"]
 metadata/_edit_lock_ = true
@@ -16,7 +25,7 @@ metadata/_edit_lock_ = true
 position = Vector2(640, 50)
 script = ExtResource("1_d4da0")
 Prefab = ExtResource("2_csn50")
-PrefabParent = NodePath("../Disks")
+PrefabParent = NodePath("../Disk Parent")
 
 [node name="Ellipse" type="Node2D" parent="Player"]
 script = ExtResource("1_4utbx")
@@ -1024,5 +1033,202 @@ script = ExtResource("1_4utbx")
 size = Vector2(20, 20)
 metadata/_edit_lock_ = true
 
-[node name="Disks" type="Node2D" parent="."]
+[node name="Buckets" type="Node2D" parent="Level"]
+
+[node name="Bucket Divider 1" type="Node2D" parent="Level/Buckets"]
+position = Vector2(331, 692)
+scale = Vector2(0.36, 10)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Level/Buckets/Bucket Divider 1"]
 metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Buckets/Bucket Divider 1/StaticBody2D"]
+shape = SubResource("RectangleShape2D_ima6r")
+metadata/_edit_lock_ = true
+
+[node name="Rectangle" type="Node2D" parent="Level/Buckets/Bucket Divider 1"]
+script = ExtResource("3_nnvu2")
+size = Vector2(20, 20)
+corner_radius = 0.0
+metadata/_edit_lock_ = true
+
+[node name="Bucket Divider 2" type="Node2D" parent="Level/Buckets"]
+position = Vector2(990, 692)
+scale = Vector2(0.36, 10)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Level/Buckets/Bucket Divider 2"]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Buckets/Bucket Divider 2/StaticBody2D"]
+shape = SubResource("RectangleShape2D_ima6r")
+metadata/_edit_lock_ = true
+
+[node name="Rectangle" type="Node2D" parent="Level/Buckets/Bucket Divider 2"]
+script = ExtResource("3_nnvu2")
+size = Vector2(20, 20)
+corner_radius = 0.0
+metadata/_edit_lock_ = true
+
+[node name="Bucket Divider 3" type="Node2D" parent="Level/Buckets"]
+position = Vector2(495, 692)
+scale = Vector2(0.36, 10)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Level/Buckets/Bucket Divider 3"]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Buckets/Bucket Divider 3/StaticBody2D"]
+shape = SubResource("RectangleShape2D_ima6r")
+metadata/_edit_lock_ = true
+
+[node name="Rectangle" type="Node2D" parent="Level/Buckets/Bucket Divider 3"]
+script = ExtResource("3_nnvu2")
+size = Vector2(20, 20)
+corner_radius = 0.0
+metadata/_edit_lock_ = true
+
+[node name="Bucket Divider 4" type="Node2D" parent="Level/Buckets"]
+position = Vector2(827, 692)
+scale = Vector2(0.36, 10)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Level/Buckets/Bucket Divider 4"]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Buckets/Bucket Divider 4/StaticBody2D"]
+shape = SubResource("RectangleShape2D_ima6r")
+metadata/_edit_lock_ = true
+
+[node name="Rectangle" type="Node2D" parent="Level/Buckets/Bucket Divider 4"]
+script = ExtResource("3_nnvu2")
+size = Vector2(20, 20)
+corner_radius = 0.0
+metadata/_edit_lock_ = true
+
+[node name="Bucket Divider 5" type="Node2D" parent="Level/Buckets"]
+position = Vector2(623, 692)
+scale = Vector2(0.36, 10)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Level/Buckets/Bucket Divider 5"]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Buckets/Bucket Divider 5/StaticBody2D"]
+shape = SubResource("RectangleShape2D_ima6r")
+metadata/_edit_lock_ = true
+
+[node name="Rectangle" type="Node2D" parent="Level/Buckets/Bucket Divider 5"]
+script = ExtResource("3_nnvu2")
+size = Vector2(20, 20)
+corner_radius = 0.0
+metadata/_edit_lock_ = true
+
+[node name="Bucket Divider 6" type="Node2D" parent="Level/Buckets"]
+position = Vector2(696, 692)
+scale = Vector2(0.36, 10)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Level/Buckets/Bucket Divider 6"]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Buckets/Bucket Divider 6/StaticBody2D"]
+shape = SubResource("RectangleShape2D_ima6r")
+metadata/_edit_lock_ = true
+
+[node name="Rectangle" type="Node2D" parent="Level/Buckets/Bucket Divider 6"]
+script = ExtResource("3_nnvu2")
+size = Vector2(20, 20)
+corner_radius = 0.0
+metadata/_edit_lock_ = true
+
+[node name="Bucket Area 1" type="Node2D" parent="Level/Buckets"]
+position = Vector2(413, 759)
+scale = Vector2(7.08, 3.6)
+
+[node name="Area2D" type="Area2D" parent="Level/Buckets/Bucket Area 1" node_paths=PackedStringArray("ScoreUI")]
+script = ExtResource("5_kiaud")
+ScoreUI = NodePath("../../../../Score UI")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Buckets/Bucket Area 1/Area2D"]
+shape = SubResource("RectangleShape2D_jq418")
+metadata/_edit_lock_ = true
+
+[node name="Bucket Area 2" type="Node2D" parent="Level/Buckets"]
+position = Vector2(560, 759)
+scale = Vector2(5.4, 3.6)
+
+[node name="Area2D" type="Area2D" parent="Level/Buckets/Bucket Area 2" node_paths=PackedStringArray("ScoreUI")]
+script = ExtResource("5_kiaud")
+ScoreUI = NodePath("../../../../Score UI")
+Points = 3
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Buckets/Bucket Area 2/Area2D"]
+shape = SubResource("RectangleShape2D_jq418")
+metadata/_edit_lock_ = true
+
+[node name="Bucket Area 3" type="Node2D" parent="Level/Buckets"]
+position = Vector2(660, 759)
+scale = Vector2(2.56, 3.6)
+
+[node name="Area2D" type="Area2D" parent="Level/Buckets/Bucket Area 3" node_paths=PackedStringArray("ScoreUI")]
+script = ExtResource("5_kiaud")
+ScoreUI = NodePath("../../../../Score UI")
+Points = 15
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Buckets/Bucket Area 3/Area2D"]
+shape = SubResource("RectangleShape2D_jq418")
+metadata/_edit_lock_ = true
+
+[node name="Bucket Area 4" type="Node2D" parent="Level/Buckets"]
+position = Vector2(762, 759)
+scale = Vector2(5.4, 3.6)
+
+[node name="Area2D" type="Area2D" parent="Level/Buckets/Bucket Area 4" node_paths=PackedStringArray("ScoreUI")]
+script = ExtResource("5_kiaud")
+ScoreUI = NodePath("../../../../Score UI")
+Points = 3
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Buckets/Bucket Area 4/Area2D"]
+shape = SubResource("RectangleShape2D_jq418")
+metadata/_edit_lock_ = true
+
+[node name="Bucket Area 5" type="Node2D" parent="Level/Buckets"]
+position = Vector2(909, 759)
+scale = Vector2(7.08, 3.6)
+
+[node name="Area2D" type="Area2D" parent="Level/Buckets/Bucket Area 5" node_paths=PackedStringArray("ScoreUI")]
+script = ExtResource("5_kiaud")
+ScoreUI = NodePath("../../../../Score UI")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Buckets/Bucket Area 5/Area2D"]
+shape = SubResource("RectangleShape2D_jq418")
+metadata/_edit_lock_ = true
+
+[node name="DestroyArea" type="Area2D" parent="Level"]
+position = Vector2(714, 1381)
+scale = Vector2(91.52, 22.4)
+script = ExtResource("6_egecq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/DestroyArea"]
+shape = SubResource("RectangleShape2D_ysgo6")
+metadata/_edit_lock_ = true
+
+[node name="Disk Parent" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="Score UI" type="Label" parent="."]
+offset_left = 103.0
+offset_top = 16.0
+offset_right = 159.0
+offset_bottom = 39.0
+text = "[SCORE]"
+script = ExtResource("6_dcm1s")
+metadata/_edit_lock_ = true
+
+[connection signal="body_entered" from="Level/Buckets/Bucket Area 1/Area2D" to="Level/Buckets/Bucket Area 1/Area2D" method="OnBodyEntered"]
+[connection signal="body_entered" from="Level/Buckets/Bucket Area 2/Area2D" to="Level/Buckets/Bucket Area 2/Area2D" method="OnBodyEntered"]
+[connection signal="body_entered" from="Level/Buckets/Bucket Area 3/Area2D" to="Level/Buckets/Bucket Area 3/Area2D" method="OnBodyEntered"]
+[connection signal="body_entered" from="Level/Buckets/Bucket Area 4/Area2D" to="Level/Buckets/Bucket Area 4/Area2D" method="OnBodyEntered"]
+[connection signal="body_entered" from="Level/Buckets/Bucket Area 5/Area2D" to="Level/Buckets/Bucket Area 5/Area2D" method="OnBodyEntered"]
+[connection signal="body_entered" from="Level/DestroyArea" to="Level/DestroyArea" method="OnBodyEntered"]
